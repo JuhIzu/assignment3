@@ -7,10 +7,18 @@
 <title>Home</title>
 </head>
 <body>
-	<h1>Hello world!</h1>
+	<h1>Inventory Service App</h1>
 
-<p>Enter user Id</p>
+	<h3>Get username</h3>
+	<p>Enter user Id</p>
 	<form action="user" method="post">
+		<input type="text" name="userId"><br> <input
+			type="submit" value="Login">
+	</form>
+
+	<h3>Get user inventory</h3>
+	<p>Enter user Id</p>
+	<form action="inventory" method="post">
 		<input type="text" name="userId"><br> <input
 			type="submit" value="Login">
 	</form>
