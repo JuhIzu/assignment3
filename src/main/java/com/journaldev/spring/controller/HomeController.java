@@ -50,4 +50,19 @@ public class HomeController {
 		model.addAttribute("userName", response.getName());
 		return "user";
 	}
+
+	@RequestMapping(value = "/inventory", method = RequestMethod.POST)
+	public String inventory(@Validated User user, Model model) {
+		
+		WebClient client = WebClient.create("https://assign3inventoryservice.azurewebsites.net/");
+
+
+		String response = client.get().uri("/inventory?userid=" + user.getId())
+						.exchange()
+                               .block()
+                               .bodyToMono(String.class)
+                               .block();
+		model.addAttribute("stuff", response);
+		return "inventory";
+	}
 }
